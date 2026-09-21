@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="TuringStack_X1_2">
+  <joint name="joint_World-Left_Camera" type="fixed">
+    <origin xyz="0.0493905 0.0301464 0.9354673" rpy="1.3421581 0.0000035 -1.5678341"/>
+    <parent link="base_link"/>
+    <child link="Left_Camera"/>
+  </joint>
+  <joint name="joint_World-Right_Camera" type="fixed">
+    <origin xyz="0.0495682 -0.0298533 0.9354671" rpy="1.3421581 0.0000035 -1.5678341"/>
+    <parent link="base_link"/>
+    <child link="Right_Camera"/>
+  </joint>
+  <joint name="joint_World-lidar" type="fixed">
+    <origin xyz="0.1 0. 0.15" rpy="0. 0. -0.0000001"/>
+    <parent link="base_link"/>
+    <child link="lidar"/>
+  </joint>
+  <link name="Left_Camera"/>
+  <link name="Right_Camera"/>
+  <link name="base_link">
+    <visual>
+      <origin xyz="-0.04 -0. -0.0000002" rpy="1.5707998 0. -0.0000001"/>
+      <geometry>
+        <mesh filename="mesh/mesh/base_link_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0. -0. 0.6900001" rpy="-0.0000001 0.0000001 -0.0005286"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link_body_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0.9200002" rpy="-0.0000001 0. 0.0029621"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link_head_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0299999 0.0000889 0.9400002" rpy="1.5708021 0.9267383 0.0029668"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link_eye_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0330984 0.1132143 0.885 " rpy="-1.5707964 0. -0.5235988"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link1_L_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0750984 0.1859604 0.885 " rpy="-0.0000025 0. 1.0472012"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link2_L_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.1491393 0.3141086 0.885 " rpy="-1.5707964 0. -0.5235988"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link3_L_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.2032465 0.348673 0.885 " rpy="0. 0. 1.047194"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link4_L_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.2062217 0.4127879 0.885 " rpy="-1.5707964 0. -0.5235988"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link5_L_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.2807516 0.5418085 0.86 " rpy="0. 0. -0.5236024"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link6_L_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.3372762 0.5528443 0.885 " rpy="-1.5707964 1.5707928 -2.0943952"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link7_L_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0329017 -0.1132935 0.8850002" rpy="1.5707964 0. 0.5235988"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link1_R_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0749017 -0.1860397 0.8850002" rpy="3.14159 0. -1.0472012"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link2_R_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.148842 -0.3142459 0.8850002" rpy="1.5707964 0. 0.5235988"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link3_R_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.2032806 -0.3486554 0.8849999" rpy="3.1415896 0.0000073 -1.0478207"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link4_R_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.2057221 -0.4130422 0.8850001" rpy="1.5708114 -0.0000087 0.5235988"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link5_R_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.2801786 -0.5421054 0.9099982" rpy="-3.1415775 -0.0000087 0.5236024"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link6_R_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.3373148 -0.5528504 0.8849977" rpy="-1.3070911 -1.5707847 -1.3080392"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link7_R_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.1 0. 0.15" rpy="0. 0. -0.0000001"/>
+      <geometry>
+        <mesh filename="mesh/mesh/Cylinder.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.07 -0.1165 0.0574998" rpy="-1.5704253 -1.57057 -0.0001448"/>
+      <geometry>
+        <mesh filename="mesh/mesh/wheel_right_link_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.07 0.1165 0.0574999" rpy="1.5702943 -1.57057 0.0002757"/>
+      <geometry>
+        <mesh filename="mesh/mesh/wheel_left_link_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.2 -0. 0.015" rpy="0. 0. 1.5707964"/>
+      <geometry>
+        <sphere radius="0.02"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.3639606 -0.514149 0.879474 " rpy="-0.0040408 -0.0075999 0.5147953"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_right_gripper01_base_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.3657013 -0.5131643 0.8794892" rpy="-0.0040407 -0.0076 0.5147952"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_right_gripper01_left2_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.3674421 -0.5121797 0.8795044" rpy="-0.0040408 -0.0076 0.5147952"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_right_gripper01right2_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.3860987 -0.5452563 0.8856577" rpy="3.137552 -0.0075974 0.5147882"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_right_gripper01_right3_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.3678201 -0.5108169 0.879508 " rpy="-0.0040407 -0.0076 0.5147953"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_right_gripper01_right1_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.3851141 -0.5435156 0.8856497" rpy="3.1375518 -0.0075975 0.5147882"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_right_gripper01_left3_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.3677533 -0.514761 0.8795065" rpy="-0.0040408 -0.0076 0.5147954"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_right_gripper01_left1_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.3876791 0.5414124 0.8796014" rpy="0.0037135 -0.0100018 -0.5246647"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_left_gripper01_base_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.38941 0.5404106 0.8796214" rpy="0.0037135 -0.0100018 -0.5246647"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_left_gripper01_left2_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.3911409 0.5394088 0.8796414" rpy="0.0037135 -0.0100018 -0.5246647"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_left_gripper01right2_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.3720439 0.5065305 0.8854999" rpy="-3.1378791 -0.0099993 -0.5246719"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_left_gripper01_right3_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.3925072 0.5397734 0.8796551" rpy="0.0037135 -0.0100018 -0.5246647"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_left_gripper01_right1_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.3730457 0.5082614 0.8855073" rpy="-3.1378791 -0.0099993 -0.5246719"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_left_gripper01_left3_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.3890733 0.5378325 0.8796225" rpy="0.0037135 -0.0100018 -0.5246647"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_left_gripper01_left1_visuals.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.04 -0. -0.0000002" rpy="1.5707998 0. -0.0000001"/>
+      <geometry>
+        <mesh filename="mesh/mesh/base_link_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0. -0. 0.6900001" rpy="-0.0000001 0.0000001 -0.0005286"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link_body_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0. 0. 0.9200002" rpy="-0.0000001 0. 0.0029621"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link_head_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0297037 0.1000884 0.9400006" rpy="1.5708021 0.9267383 0.0029668"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link_eye_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0330984 0.1132143 0.885 " rpy="-1.5707964 0. -0.5235988"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link1_L_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0750984 0.1859604 0.885 " rpy="-0.0000025 0. 1.0472012"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link2_L_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.1491393 0.3141086 0.885 " rpy="-1.5707964 0. -0.5235988"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link3_L_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.2032465 0.348673 0.885 " rpy="0. 0. 1.047194"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link4_L_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.2062217 0.4127879 0.885 " rpy="-1.5707964 0. -0.5235988"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link5_L_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.2807516 0.5418085 0.86 " rpy="0. 0. -0.5236024"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link6_L_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.3372762 0.5528443 0.885 " rpy="-1.5707964 1.5707928 -2.0943952"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link7_L_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0329017 -0.1132935 0.8850002" rpy="1.5707964 0. 0.5235988"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link1_R_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0749017 -0.1860397 0.8850002" rpy="3.14159 0. -1.0472012"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link2_R_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.148842 -0.3142459 0.8850002" rpy="1.5707964 0. 0.5235988"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link3_R_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.2032806 -0.3486554 0.8849999" rpy="3.1415896 0.0000073 -1.0478207"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link4_R_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.2057221 -0.4130422 0.8850001" rpy="1.5708114 -0.0000087 0.5235988"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link5_R_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.2801786 -0.5421054 0.9099982" rpy="-3.1415775 -0.0000087 0.5236024"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link6_R_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.3373148 -0.5528504 0.8849977" rpy="-1.3070911 -1.5707847 -1.3080392"/>
+      <geometry>
+        <mesh filename="mesh/mesh/link7_R_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.07 -0.1165 0.0574998" rpy="-1.5704253 -1.57057 -0.0001448"/>
+      <geometry>
+        <sphere radius="0.0675"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.07 0.1165 0.0574999" rpy="1.5702943 -1.57057 0.0002757"/>
+      <geometry>
+        <sphere radius="0.0675"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.2 -0. 0.015" rpy="0. 0. 1.5707964"/>
+      <geometry>
+        <sphere radius="0.02"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.3639606 -0.514149 0.879474 " rpy="-0.0040408 -0.0075999 0.5147953"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_right_gripper01_base_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.3657013 -0.5131643 0.8794892" rpy="-0.0040407 -0.0076 0.5147952"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_right_gripper01_left2_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.3674421 -0.5121797 0.8795044" rpy="-0.0040408 -0.0076 0.5147952"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_right_gripper01right2_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.3860987 -0.5452563 0.8856577" rpy="3.137552 -0.0075974 0.5147882"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_right_gripper01_right3_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.3678201 -0.5108169 0.879508 " rpy="-0.0040407 -0.0076 0.5147953"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_right_gripper01_right1_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.3851141 -0.5435156 0.8856497" rpy="3.1375518 -0.0075975 0.5147882"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_right_gripper01_left3_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.3677533 -0.514761 0.8795065" rpy="-0.0040408 -0.0076 0.5147954"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_right_gripper01_left1_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.3876791 0.5414124 0.8796014" rpy="0.0037135 -0.0100018 -0.5246647"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_left_gripper01_base_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.38941 0.5404106 0.8796214" rpy="0.0037135 -0.0100018 -0.5246647"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_left_gripper01_left2_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.3911409 0.5394088 0.8796414" rpy="0.0037135 -0.0100018 -0.5246647"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_left_gripper01right2_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.3720439 0.5065305 0.8854999" rpy="-3.1378791 -0.0099993 -0.5246719"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_left_gripper01_right3_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.3925072 0.5397734 0.8796551" rpy="0.0037135 -0.0100018 -0.5246647"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_left_gripper01_right1_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.3730457 0.5082614 0.8855073" rpy="-3.1378791 -0.0099993 -0.5246719"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_left_gripper01_left3_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.3890733 0.5378325 0.8796225" rpy="0.0037135 -0.0100018 -0.5246647"/>
+      <geometry>
+        <mesh filename="mesh/mesh/gripper_left_gripper01_left1_collisions.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lidar"/>
+  <link name="link_body"/>
+  <link name="link_head"/>
+  <link name="link_eye"/>
+  <link name="link1_R"/>
+  <link name="link1_L"/>
+  <link name="link2_L"/>
+  <link name="link3_L"/>
+  <link name="link4_L"/>
+  <link name="link5_L"/>
+  <link name="link6_L"/>
+
+  <joint name="body" type="revolute">
+    <parent link="base_link"/>
+    <child link="link_body"/>
+    <origin xyz="-1.3674916e-8 -2.7567522e-9 0.8000003" rpy="7.29643396e-13 -5.05084863e-12 -0.0006185235"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-2.05948851735" upper="3.28121899348" effort="1000.0" velocity="3.4028235e38"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <joint name="head" type="revolute">
+    <parent link="link_body"/>
+    <child link="link_head"/>
+    <origin xyz="1.2652233e-9 5.039015e-10 0.22000009" rpy="0.555320303 -1.5707963268 -0.5361595809"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-2.40855436775" upper="3.28121899348" effort="1000.0" velocity="3.4028235e38"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <joint name="eye" type="revolute">
+    <parent link="link_head"/>
+    <child link="link_eye"/>
+    <origin xyz="0.030000001 -1.3624515e-8 -0.07999998" rpy="1.3421580874 3.5349e-06 -1.5707960872"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.0471975512" upper="0.3490658504" effort="1000.0" velocity="3.4028235e38"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <joint name="joint1_R" type="revolute">
+    <parent link="link_body"/>
+    <child link="link1_R"/>
+    <origin xyz="0.07500002 -0.18600005 0.0850001" rpy="1.57079628 -1.04305103e-07 0.524127464"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-2.87979326579" upper="2.87979326579" effort="1000.0" velocity="3.4028235e38"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <joint name="joint1_L" type="revolute">
+    <parent link="link_body"/>
+    <child link="link1_L"/>
+    <origin xyz="0.07500006 0.18600011 0.08499988" rpy="-1.5707964165 -1.102e-07 1.04772605"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-2.87979326579" upper="2.87979326579" effort="1000.0" velocity="3.4028235e38"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <joint name="joint2_L" type="revolute">
+    <parent link="link1_L"/>
+    <child link="link2_L"/>
+    <origin xyz="-1.3974006e-9 9.536743e-9 6.326345e-9" rpy="-1.5707962668 0.0 1.5707962068"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-0.9599310885" upper="1.6580627894" effort="1000.0" velocity="3.4028235e38"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <joint name="FixedJointL" type="fixed">
+    <parent link="link2_L"/>
+    <child link="link3_L"/>
+    <origin xyz="-0.000047250433 9.536743e-9 -0.109999985" rpy="-1.5707962952 4.2e-09 0.0"/>
+  </joint>
+
+  <joint name="joint3_L" type="revolute">
+    <parent link="link3_L"/>
+    <child link="link4_L"/>
+    <origin xyz="0.02957594 9.536743e-9 0.0949873" rpy="-1.5707962668 0.0 -1.5707963268"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-3.01941960595" upper="0.0872664626" effort="1000.0" velocity="3.4028235e38"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <joint name="joint4_L" type="revolute">
+    <parent link="link4_L"/>
+    <child link="link5_L"/>
+    <origin xyz="0.029480848 -0.12601273 -9.536743e-9" rpy="-1.5707963868 6e-08 -1.5707964468"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-2.87979326579" upper="2.87979326579" effort="1000.0" velocity="3.4028235e38"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <joint name="joint5_L" type="revolute">
+    <parent link="link5_L"/>
+    <child link="link6_L"/>
+    <origin xyz="0.000034500623 9.536743e-9 0.08000001" rpy="3.1415926377 -1.354e-07 -1.5707962952"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-0.3490658504" upper="4.6251225178" effort="1000.0" velocity="3.4028235e38"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link name="link7_L"/>
+  <link name="link2_R"/>
+  <link name="link3_R"/>
+  <link name="link4_R"/>
+  <link name="link5_R"/>
+  <link name="link6_R"/>
+  <link name="link7_R"/>
+  <link name="right_tcp"/>
+  <link name="left_tcp"/>
+
+  <link name="gripper01_base"/>
+  <link name="gripper01_left2"/>
+  <link name="gripper01right2"/>
+  <link name="gripper01_right3"/>
+  <link name="gripper01_right1"/>
+  <link name="gripper01_left3"/>
+  <link name="gripper01_left1"/>
+
+  <link name="gripper01_base_L"/>
+  <link name="gripper01_left2_L"/>
+  <link name="gripper01right2_L"/>
+  <link name="gripper01_right3_L"/>
+  <link name="gripper01_right1_L"/>
+  <link name="gripper01_left3_L"/>
+  <link name="gripper01_left1_L"/>
+
+  <joint name="joint6_L" type="revolute">
+    <parent link="link6_L"/>
+    <child link="link7_L"/>
+    <origin xyz="0.037819594 -0.045433823 -9.536743e-9" rpy="1.57079638679 0 -1.57079620679"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-3.141592653589793" upper="3.141592653589793" effort="1000.0" velocity="3.4028235e38"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <joint name="joint2_R" type="revolute">
+    <parent link="link1_R"/>
+    <child link="link2_R"/>
+    <origin xyz="-3.4958156e-9 -7.771561e-16 4.2064863e-9" rpy="-1.57079633 6.00048968e-08 -1.20004897e-07"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.9599310885968813" upper="1.6580627893946132" effort="1000.0" velocity="3.4028235e38"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <joint name="FixedJointR" type="fixed">
+    <parent link="link2_R"/>
+    <child link="link3_R"/>
+    <origin xyz="-6.89306776e-05 -0.11000003 -5.61237054e-08" rpy="1.57079630 4.44089210e-16 9.29424382e-09"/>
+  </joint>
+
+  <joint name="joint3_R" type="revolute">
+    <parent link="link3_R"/>
+    <child link="link4_R"/>
+    <origin xyz="0.02994045 -2.9802322e-7 0.09501882" rpy="-1.57080359 0.000626781795 3.14158963"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.01941960595019" upper="0.08726646259971647" effort="1000.0" velocity="3.4028235e38"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <joint name="joint4_R" type="revolute">
+    <parent link="link4_R"/>
+    <child link="link5_R"/>
+    <origin xyz="0.03000003 -0.12600009 7.316509e-9" rpy="-1.57078843 1.17041749e-05 3.14096576"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-2.8797932657906435" upper="2.8797932657906435" effort="1000.0" velocity="3.4028235e38"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <joint name="joint5_R" type="revolute">
+    <parent link="link5_R"/>
+    <child link="link6_R"/>
+    <origin xyz="-0.000050108756 3.7517034e-7 0.0799999" rpy="0.23509713 -1.57079616 1.33569923"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.3490658503988659" upper="4.625122517784973" effort="1000.0" velocity="3.4028235e38"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <joint name="joint6_R" type="revolute">
+    <parent link="link6_R"/>
+    <child link="link7_R"/>
+    <origin xyz="0.037868198 -0.04610863 3.664379e-7" rpy="1.57079060 2.01834897e-07 -0.00286355091"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.141592653589793" upper="3.141592653589793" effort="1000.0" velocity="3.4028235e38"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <joint name="link7_R_to_right_tcp" type="fixed">
+    <parent link="link7_R"/>
+    <child link="right_tcp"/>
+    <origin xyz="0.000027296 0.008093056 0.127487853" rpy="1.57834604 0.0117013148 -0.00405579201"/>
+  </joint>
+
+  <joint name="root_joint_R" type="fixed">
+    <parent link="link7_R"/>
+    <child link="gripper01_base"/>
+    <origin xyz="-0.64746904 0.88500726 -0.015846558" rpy="1.57079012137 -1.04433356305 -9.59755688479e-06"/>
+  </joint>
+
+  <joint name="gripper01_base_to_gripper_left2" type="revolute">
+    <parent link="gripper01_base"/>
+    <child link="gripper01_left2"/>
+    <origin xyz="-0.049999975 -0.009999988 2.061556e-8" rpy="3.17225552992e-08 9.61688015506e-08 -9.77623864746e-08"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.6999999710422367" upper="0.300000002549495" effort="180.0" velocity="114.59156"/>
+    <dynamics damping="0.05" friction="0.0"/>
+    <mimic joint="gripper_controller" multiplier="-1" offset="0"/>
+  </joint>
+
+  <joint name="gripper01_base_to_gripper_right2" type="revolute">
+    <parent link="gripper01_base"/>
+    <child link="gripper01right2"/>
+    <origin xyz="0.045999978 -0.009999992 2.6149385e-8" rpy="2.37395360064e-08 -1.31015054422e-10 -9.75232560016e-08"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.300000002549495" upper="0.6999999710422367" effort="180.0" velocity="114.59156"/>
+    <dynamics damping="0.05" friction="0.0"/>
+    <mimic joint="gripper_controller" multiplier="1" offset="0"/>
+  </joint>
+
+  <joint name="gripper01_base_to_gripper_right3" type="revolute">
+    <parent link="gripper01_base"/>
+    <child link="gripper01_right3"/>
+    <origin xyz="0.017999973 0.016000045 2.6643885e-8" rpy="1.10715931051e-08 3.82958876805e-08 5.7716050212e-08"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.300000002549495" upper="0.6999999710422367" effort="180.0" velocity="114.59156"/>
+    <dynamics damping="0.05" friction="0.0"/>
+    <mimic joint="gripper_controller" multiplier="1" offset="0"/>
+  </joint>
+
+  <joint name="gripper_controller" type="revolute">
+    <parent link="gripper01_base"/>
+    <child link="gripper01_left3"/>
+    <origin xyz="-0.01799999 0.015999991 -4.9019335e-9" rpy="4.16047956748e-08 -1.12816399994e-08 5.76545877653e-08"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.6999999710422367" upper="0.300000002549495" effort="180.0" velocity="114.59156"/>
+    <dynamics damping="0.1" friction="0.0"/>
+  </joint>
+
+  <joint name="gripper01_right3_to_gripper_right1" type="revolute">
+    <parent link="gripper01_right3"/>
+    <child link="gripper01_right1"/>
+    <origin xyz="0.033000007 0.051000006 -0.017999975" rpy="9.90737401959e-09 6.26401907877e-08 -1.5901653969e-07"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.6999999710422367" upper="0.300000002549495" effort="180.0" velocity="114.59156"/>
+    <dynamics damping="0.05" friction="0.0"/>
+    <mimic joint="gripper_controller" multiplier="-1" offset="0"/>
+  </joint>
+
+  <joint name="gripper01_left3_to_gripper_left1" type="revolute">
+    <parent link="gripper01_left3"/>
+    <child link="gripper01_left1"/>
+    <origin xyz="-0.035599995 0.051000018 -0.01800001" rpy="-5.29132886392e-09 1.54691199781e-08 -8.26386084093e-09"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.300000002549495" upper="0.6999999710422367" effort="180.0" velocity="114.59156"/>
+    <dynamics damping="0.05" friction="0.0"/>
+    <mimic joint="gripper_controller" multiplier="1" offset="0"/>
+  </joint>
+
+  <joint name="root_joint_L" type="fixed">
+    <parent link="link7_L"/>
+    <child link="gripper01_base_L"/>
+    <origin xyz="-0.6474153 -0.88500005 -0.01766757" rpy="-1.57079617853 -1.04719749632 0"/>
+  </joint>
+
+  <joint name="link7_L_to_left_tcp" type="fixed">
+    <parent link="link7_L"/>
+    <child link="left_tcp"/>
+    <origin xyz="-0.00092001 -0.008537551 0.102414296" rpy="-1.57079618 -0.0117 0.00406"/>
+  </joint>
+
+  <joint name="gripper01_base_to_gripper_left2_L" type="revolute">
+    <parent link="gripper01_base_L"/>
+    <child link="gripper01_left2_L"/>
+    <origin xyz="-0.050000027 -0.010000004 -2.0204349e-10" rpy="-2.10431936128e-10 1.74464404671e-10 4.4389804e-08"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.6999999710422367" upper="0.300000002549495" effort="180.0" velocity="114.59156"/>
+    <dynamics damping="0.05" friction="0.0"/>
+    <mimic joint="gripper_left_controller" multiplier="-1" offset="0"/>
+  </joint>
+
+  <joint name="gripper01_base_to_gripper_right2_L" type="revolute">
+    <parent link="gripper01_base_L"/>
+    <child link="gripper01right2_L"/>
+    <origin xyz="0.046000015 -0.009999994 -1.1887302e-8" rpy="-2.10431936128e-10 1.74464404671e-10 4.4389804e-08"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.300000002549495" upper="0.6999999710422367" effort="180.0" velocity="114.59156"/>
+    <dynamics damping="0.05" friction="0.0"/>
+    <mimic joint="gripper_left_controller" multiplier="1" offset="0"/>
+  </joint>
+
+  <joint name="gripper01_base_to_gripper_right3_L" type="revolute">
+    <parent link="gripper01_base_L"/>
+    <child link="gripper01_right3_L"/>
+    <origin xyz="0.018000012 0.01600002 -2.3867178e-8" rpy="-2.10431936128e-10 1.74464404671e-10 4.4389804e-08"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.300000002549495" upper="0.6999999710422367" effort="180.0" velocity="114.59156"/>
+    <dynamics damping="0.05" friction="0.0"/>
+    <mimic joint="gripper_left_controller" multiplier="1" offset="0"/>
+  </joint>
+
+  <joint name="gripper_left_controller" type="revolute">
+    <parent link="gripper01_base_L"/>
+    <child link="gripper01_left3_L"/>
+    <origin xyz="-0.018000025 0.01599999 -1.18573045e-8" rpy="-2.10431936128e-10 1.74464404671e-10 4.4389804e-08"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.6999999710422367" upper="0.300000002549495" effort="180.0" velocity="114.59156"/>
+    <dynamics damping="0.1" friction="0.0"/>
+  </joint>
+
+  <joint name="gripper01_right3_to_gripper_right1_L" type="revolute">
+    <parent link="gripper01_right3_L"/>
+    <child link="gripper01_right1_L"/>
+    <origin xyz="0.033000007 0.051000006 -0.017999975" rpy="-2.10431936128e-10 1.74464404671e-10 4.4389804e-08"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.6999999710422367" upper="0.300000002549495" effort="180.0" velocity="114.59156"/>
+    <dynamics damping="0.05" friction="0.0"/>
+    <mimic joint="gripper_left_controller" multiplier="-1" offset="0"/>
+  </joint>
+
+  <joint name="gripper01_left3_to_gripper_left1_L" type="revolute">
+    <parent link="gripper01_left3_L"/>
+    <child link="gripper01_left1_L"/>
+    <origin xyz="-0.035599995 0.051000018 -0.01800001" rpy="-2.10431936128e-10 1.74464404671e-10 4.4389804e-08"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.300000002549495" upper="0.6999999710422367" effort="180.0" velocity="114.59156"/>
+    <dynamics damping="0.05" friction="0.0"/>
+    <mimic joint="gripper_left_controller" multiplier="1" offset="0"/>
+  </joint>
+</robot>

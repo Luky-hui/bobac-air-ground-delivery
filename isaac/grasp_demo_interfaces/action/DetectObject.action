@@ -1,0 +1,14 @@
+string[] target_classes
+float32 confidence_threshold
+float32 timeout
+---
+bool success
+string message
+string detected_class
+geometry_msgs/PointStamped object_position
+geometry_msgs/Vector3Stamped normal
+geometry_msgs/Vector3Stamped long_axis
+float32 confidence
+---
+string state
+int32 detection_attempts

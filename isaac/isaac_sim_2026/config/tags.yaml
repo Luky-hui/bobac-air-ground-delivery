@@ -1,0 +1,8 @@
+apriltag_node:
+  ros__parameters:
+    family: 36h11
+    size: 0.05601024
+    max_hamming: 0
+    image_transport: raw
+    use_sim_time: true
+

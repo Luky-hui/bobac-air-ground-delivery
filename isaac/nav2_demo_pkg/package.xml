@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>nav2_demo_pkg</name>
+  <version>1.0.0</version>
+  <description>Nav2 导航系统完整 Demo 包</description>
+  <maintainer email="demo@robotac.com">Robotac Demo</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- ROS2 基础依赖 -->
+  <depend>rclcpp</depend>
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+
+  <!-- Nav2 导航栈依赖 -->
+  <depend>nav2_bringup</depend>
+  <depend>nav2_common</depend>
+  <depend>navigation2</depend>
+  <depend>nav2_msgs</depend>
+
+  <!-- 建图相关 -->
+  <depend>slam_toolbox</depend>
+
+  <!-- 定位相关 -->
+  <depend>nav2_amcl</depend>
+
+  <!-- 地图服务 -->
+  <depend>nav2_map_server</depend>
+
+  <!-- 可视化 -->
+  <depend>rviz2</depend>
+  <depend>nav2_rviz_plugins</depend>
+  <depend>robot_state_publisher</depend>
+
+  <!-- Launch 文件 -->
+  <depend>launch_ros</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,11 @@
+string command
+float32 position
+float32 speed
+bool wait_for_completion
+---
+bool success
+string message
+float32 final_position
+---
+string state
+float32 current_position

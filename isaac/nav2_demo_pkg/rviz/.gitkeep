@@ -1,0 +1,9 @@
+# RViz 配置文件目录
+# 
+# 在实际使用时，可以通过 RViz 界面保存配置文件到此目录：
+# File -> Save Config As -> 选择此目录
+#
+# 推荐的配置文件名：
+# - slam_config.rviz (SLAM 建图)
+# - amcl_config.rviz (定位测试)
+# - nav2_config.rviz (完整导航)

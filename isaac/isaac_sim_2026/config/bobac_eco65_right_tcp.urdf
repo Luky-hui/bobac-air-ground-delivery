@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<robot name="bobac_eco65_right_tcp">
+  <!--
+    Minimal Bobac ECO65-B kinematic chain for cuRobo.
+
+    The revolute joint origins are generated from the official ECO65-B MDH
+    table used in the course material:
+      T = TransX(a_{i-1}) RotX(alpha_{i-1}) TransZ(d_i) RotZ(theta_i + offset_i)
+
+    right_tcp is the measured midpoint between the Bobac Lebai gripper
+    gripper_l_link2 and gripper_r_link2 links in the final MDH link frame.
+    Fresh Bobac USD measurements on 2026-07-16 fit this offset with
+    sub-millimeter residuals across the table-grasp workspace.
+  -->
+
+  <link name="base_link_arm"/>
+  <link name="link_1"/>
+  <link name="link_2"/>
+  <link name="link_3"/>
+  <link name="link_4"/>
+  <link name="link_5"/>
+  <link name="link_6"/>
+  <link name="right_tcp"/>
+
+  <joint name="joint_1" type="revolute">
+    <parent link="base_link_arm"/>
+    <child link="link_1"/>
+    <origin xyz="0 0 0.1625" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.11" upper="3.11" effort="150" velocity="3.14159"/>
+  </joint>
+
+  <joint name="joint_2" type="revolute">
+    <parent link="link_1"/>
+    <child link="link_2"/>
+    <origin xyz="-0.086 0 0" rpy="-1.57079632679 -1.57079632679 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.11" upper="2.36" effort="150" velocity="3.14159"/>
+  </joint>
+
+  <joint name="joint_3" type="revolute">
+    <parent link="link_2"/>
+    <child link="link_3"/>
+    <origin xyz="0.260 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-2.79" upper="2.53" effort="150" velocity="3.92699"/>
+  </joint>
+
+  <joint name="joint_4" type="revolute">
+    <parent link="link_3"/>
+    <child link="link_4"/>
+    <origin xyz="0.240 0 -0.05888" rpy="0 0 1.57079632679"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.11" upper="3.11" effort="150" velocity="3.92699"/>
+  </joint>
+
+  <joint name="joint_5" type="revolute">
+    <parent link="link_4"/>
+    <child link="link_5"/>
+    <origin xyz="0 -0.110 0" rpy="1.57079632679 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.11" upper="3.11" effort="150" velocity="3.92699"/>
+  </joint>
+
+  <joint name="joint_6" type="revolute">
+    <parent link="link_5"/>
+    <child link="link_6"/>
+    <origin xyz="0 0.0795 0" rpy="-1.57079632679 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-6.28" upper="6.28" effort="150" velocity="3.92699"/>
+  </joint>
+
+  <joint name="right_tcp_fixed" type="fixed">
+    <parent link="link_6"/>
+    <child link="right_tcp"/>
+    <origin xyz="0.0000778 -0.0000062 0.1156157" rpy="0 0 0"/>
+  </joint>
+</robot>

@@ -1,0 +1,59 @@
+﻿mdl 1.3;
+
+import ::math::*;
+import ::state::*;
+import ::tex::*;
+import ::anno::*;
+using OmniUe4Function import *;
+using OmniUe4Base import *;
+
+export annotation sampler_color();
+export annotation sampler_normal();
+export annotation sampler_grayscale();
+export annotation sampler_alpha();
+export annotation sampler_masks();
+export annotation sampler_distancefield();
+export annotation dither_masked_off();
+export annotation world_space_normal();
+
+export material MI_Props(
+	uniform texture_2d Normal = texture_2d("../textures/T_Bookcase_n.png",::tex::gamma_linear)
+	[[sampler_normal()]],
+	uniform texture_2d BaseColor = texture_2d("../textures/T_Bookcase_bc.png",::tex::gamma_srgb)
+	[[sampler_color()]],
+	float4 Color = float4(1.0,1.0,1.0,1.0),
+	uniform texture_2d AO_R_Rough_G_Metallic_B_ = texture_2d("../textures/T_Bookcase_ao_r_m.png",::tex::gamma_linear)
+	[[sampler_color()]],
+	float RoughnessMultiplier = 1.0)
+ = 
+	let {
+	float3 WorldPositionOffset_mdl = float3(0.0,0.0,0.0);
+	float2 CustomizedUV0_mdl = float2(state::texture_coordinate(0).x,1.0-state::texture_coordinate(0).y);
+
+	float4 Local0 = ::unpack_normal_map(tex::lookup_float4(Normal,float2(CustomizedUV0_mdl.x,1.0-CustomizedUV0_mdl.y),tex::wrap_repeat,tex::wrap_repeat));
+
+	float3 Normal_mdl = float3(Local0.x,Local0.y,Local0.z);
+
+	float4 Local1 = tex::lookup_float4(BaseColor,float2(CustomizedUV0_mdl.x,1.0-CustomizedUV0_mdl.y),tex::wrap_repeat,tex::wrap_repeat);
+	float3 Local2 = (float3(Local1.x,Local1.y,Local1.z) * float3(Color.x,Color.y,Color.z));
+	float4 Local3 = tex::lookup_float4(AO_R_Rough_G_Metallic_B_,float2(CustomizedUV0_mdl.x,1.0-CustomizedUV0_mdl.y),tex::wrap_repeat,tex::wrap_repeat);
+	float Local4 = (Local3.y * RoughnessMultiplier);
+
+	float3 EmissiveColor_mdl = float3(0.0,0.0,0.0);
+	float OpacityMask_mdl = 1.0;
+	float3 BaseColor_mdl = Local2;
+	float Metallic_mdl = Local3.z;
+	float Specular_mdl = 0.5;
+	float Roughness_mdl = Local4;
+
+	} in
+		::OmniUe4Base(
+			base_color: BaseColor_mdl,
+			metallic: Metallic_mdl,
+			roughness: Roughness_mdl,
+			specular: Specular_mdl,
+			normal: Normal_mdl,
+			opacity: OpacityMask_mdl,
+			emissive_color: EmissiveColor_mdl,
+			displacement: WorldPositionOffset_mdl,
+			two_sided: false);

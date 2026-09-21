@@ -1,0 +1,11 @@
+geometry_msgs/PointStamped target
+geometry_msgs/Vector3Stamped normal
+geometry_msgs/Vector3Stamped long_axis
+bool execute
+string label
+---
+bool success
+string message
+geometry_msgs/PoseStamped commanded_pose
+---
+string state

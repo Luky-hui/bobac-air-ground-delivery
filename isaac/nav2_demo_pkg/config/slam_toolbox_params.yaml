@@ -1,0 +1,67 @@
+# SLAM Toolbox 配置文件
+# 适用于在线 SLAM 建图
+
+slam_toolbox:
+  ros__parameters:
+    # === 插件配置 ===
+    solver_plugin: solver_plugins::CeresSolver
+    ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
+    ceres_preconditioner: SCHUR_JACOBI
+    ceres_trust_strategy: LEVENBERG_MARQUARDT
+    ceres_dogleg_type: TRADITIONAL_DOGLEG
+    ceres_loss_function: None
+
+    # === ROS 参数 ===
+    odom_frame: odom
+    map_frame: map
+    base_frame: base_link
+    scan_topic: /laser_scan_fuse
+    use_map_saver: true
+    mode: mapping  # mapping or localization
+
+    # === 是否使用仿真时间 ===
+    use_sim_time: true
+
+    # === 调试参数 ===
+    debug_logging: false
+    throttle_scans: 1
+    transform_publish_period: 0.02  # 50Hz，快速更新 TF
+    map_update_interval: 2.0
+    resolution: 0.05
+    max_laser_range: 10.0  # 激光雷达最大有效距离（米）
+    minimum_time_interval: 0.5
+    transform_timeout: 0.2
+    tf_buffer_duration: 30.0
+
+    # === 栅格地图参数 ===
+    stack_size_to_use: 40000000  # 40MB 栈空间
+    enable_interactive_mode: true
+
+    # === SLAM 核心算法参数 ===
+    # 匹配相关
+    use_scan_matching: true
+    use_scan_barycenter: true
+    minimum_travel_distance: 0.2  # 移动 0.2m 才处理一次扫描
+    minimum_travel_heading: 0.2   # 旋转 0.2 rad 才处理一次扫描
+    scan_buffer_size: 10
+    scan_buffer_maximum_scan_distance: 10.0
+    link_match_minimum_response_fine: 0.1
+    link_scan_maximum_distance: 1.5
+    loop_search_maximum_distance: 3.0
+    do_loop_closing: true
+    loop_match_minimum_chain_size: 10
+    loop_match_maximum_variance_coarse: 3.0
+    loop_match_minimum_response_coarse: 0.35
+    loop_match_minimum_response_fine: 0.45
+
+    # 相关性参数
+    correlation_search_space_dimension: 0.5
+    correlation_search_space_resolution: 0.01
+    correlation_search_space_smear_deviation: 0.1
+
+    # 扫描匹配器参数
+    coarse_search_angle_offset: 0.349
+    coarse_angle_resolution: 0.0349
+    minimum_angle_penalty: 0.9
+    minimum_distance_penalty: 0.5
+    use_response_expansion: true

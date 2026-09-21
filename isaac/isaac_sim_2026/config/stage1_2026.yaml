@@ -1,0 +1,47 @@
+stage1_task_manager:
+  ros__parameters:
+    use_sim_time: true
+
+    # 2026 official Bobac assets; launch Isaac Sim separately with:
+    # /home/u-zhuang/ros2_ws/src/isaac/isaac-sim/isaacsimassets-dev/integrated_runtime/run_demo_scene.sh --world Bobac
+    official_assets_root: /home/u-zhuang/ros2_ws/src/isaac/isaac-sim/isaacsimassets-dev
+    official_world_usd: /home/u-zhuang/ros2_ws/src/isaac/isaac-sim/isaacsimassets-dev/assets/full_worlds/Collected_bobac_race_scene/bobac_race_scene.usd
+    official_map_usd: /home/u-zhuang/ros2_ws/src/isaac/isaac-sim/isaacsimassets-dev/assets/single_worlds/Collected_race_single_scene/race_single_scene.usd
+
+    map_frame: odom
+    office_waypoints: [1.760000, -1.100000, 1.661177, 3.436775, -0.727569, 1.661177, 3.970959, -0.368233, 1.577041]
+    office_goal: [3.970959, -0.368233, 1.577041]
+    nav_timeout_sec: 180.0
+    require_navigation_success: false
+    action_server_wait_sec: 90.0
+
+    target_classes: [pencil, pen]
+    confidence_threshold: 0.01
+    detect_timeout_sec: 20.0
+    perception_wait_sec: 8.0
+
+    joint_command_topic: /joint_command
+    arm_joint_names: [joint_1, joint_2, joint_3, joint_4, joint_5, joint_6]
+    observation_pose: [0.0, 0.58, -1.67, -0.5, 1.51, 0.0]
+    observation_hold_sec: 3.0
+
+    object_point_topic: /demo_grasp/object_point_base
+    normal_topic: /demo_grasp/normal_base
+    long_axis_topic: /demo_grasp/long_axis_base
+
+    pre_grasp_offset: 0.08
+    finger_tip_offset: 0.03
+    lift_offset: 0.12
+    cargo_place_position: [0.65, -0.22, 0.18]
+    execute_demo_motion: true
+
+    open_gripper_before_grasp: true
+    gripper_open_position: 100.0
+    gripper_close_position: 0.0
+
+    cargo_command_topic: /cargo_bay/command
+    cargo_status_topic: /cargo_bay/status
+    cargo_status_wait_sec: 3.0
+    cargo_prepare_command: left_open
+    cargo_finish_command: left_close
+    publish_cargo_commands: true

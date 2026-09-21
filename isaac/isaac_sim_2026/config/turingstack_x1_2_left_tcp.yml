@@ -1,0 +1,108 @@
+##
+## TuringStack X1 left_tcp cuRobo configuration
+## Source URDF: /home/u-zhuang/ros2_ws/src/isaac/isaac_sim_2026/config/TuringStack_X1_2.urdf
+##
+
+robot_cfg:
+  kinematics:
+    usd_path: null
+    usd_robot_root: "/robot"
+    isaac_usd_path: ""
+    usd_flip_joints: {}
+    usd_flip_joint_limits: []
+
+    urdf_path: "/home/u-zhuang/ros2_ws/src/isaac/isaac_sim_2026/config/TuringStack_X1_2.urdf"
+    asset_root_path: "/home/u-zhuang/ros2_ws/src/isaac/isaac_sim_2026/config"
+
+    base_link: "base_link"
+    ee_link: "left_tcp"
+    link_names: null
+    lock_joints:
+      body: 0.0
+    extra_links: null
+
+    collision_link_names:
+      - "link1_L"
+      - "link2_L"
+      - "link3_L"
+      - "link4_L"
+      - "link5_L"
+      - "link6_L"
+      - "link7_L"
+      - "left_tcp"
+
+    collision_spheres:
+      link1_L:
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.025
+        - center: [0.0, 0.0, 0.04]
+          radius: 0.025
+      link2_L:
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.022
+        - center: [0.0, 0.055, 0.0]
+          radius: 0.020
+      link3_L:
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.020
+        - center: [0.0, 0.0, 0.05]
+          radius: 0.020
+      link4_L:
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.018
+      link5_L:
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.018
+      link6_L:
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.016
+        - center: [0.0, 0.0, 0.03]
+          radius: 0.016
+      link7_L:
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.018
+      left_tcp:
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.012
+
+    collision_sphere_buffer: 0.0
+    extra_collision_spheres: {}
+
+    self_collision_ignore:
+      link1_L: ["link2_L", "link3_L"]
+      link2_L: ["link1_L", "link3_L", "link4_L"]
+      link3_L: ["link1_L", "link2_L", "link4_L", "link5_L"]
+      link4_L: ["link2_L", "link3_L", "link5_L", "link6_L"]
+      link5_L: ["link3_L", "link4_L", "link6_L", "link7_L"]
+      link6_L: ["link4_L", "link5_L", "link7_L", "left_tcp"]
+      link7_L: ["link5_L", "link6_L", "left_tcp"]
+      left_tcp: ["link6_L", "link7_L"]
+
+    self_collision_buffer:
+      link1_L: 0.00
+      link2_L: 0.00
+      link3_L: 0.00
+      link4_L: 0.00
+      link5_L: 0.00
+      link6_L: 0.00
+      link7_L: 0.00
+      left_tcp: 0.00
+
+    use_global_cumul: True
+    mesh_link_names: []
+
+    cspace:
+      joint_names:
+        - "joint1_L"
+        - "joint2_L"
+        - "joint3_L"
+        - "joint4_L"
+        - "joint5_L"
+        - "joint6_L"
+
+      retract_config: [0.9, 0.0, 0.0, -0.5, 0.0, 0.0]
+      null_space_weight: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+      cspace_distance_weight: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+      max_acceleration: 10.0
+      max_jerk: 300.0
+      position_limit_clip: 0.1

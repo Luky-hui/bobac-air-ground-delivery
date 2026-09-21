@@ -1,0 +1,97 @@
+##
+## Bobac ECO65-B right_tcp cuRobo configuration
+##
+## This is the Bobac-specific replacement for the older TuringStack X1 right
+## arm model when running the Bobac race scene.  It uses the official ECO65-B
+## MDH chain and the live Bobac joint names joint_1..joint_6.
+##
+
+robot_cfg:
+  kinematics:
+    usd_path: null
+    usd_robot_root: "/robot"
+    isaac_usd_path: ""
+    usd_flip_joints: {}
+    usd_flip_joint_limits: []
+
+    urdf_path: "/home/u-zhuang/ros2_ws/src/isaac/isaac_sim_2026/config/bobac_eco65_right_tcp.urdf"
+    asset_root_path: "/home/u-zhuang/ros2_ws/src/isaac/isaac_sim_2026/config"
+
+    base_link: "base_link_arm"
+    ee_link: "right_tcp"
+    link_names: null
+    lock_joints: {}
+    extra_links: null
+
+    collision_link_names:
+      - "link_1"
+      - "link_2"
+      - "link_3"
+      - "link_4"
+      - "link_5"
+      - "link_6"
+      - "right_tcp"
+
+    collision_spheres:
+      link_1:
+        - center: [0.0, 0.0, 0.08]
+          radius: 0.040
+      link_2:
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.035
+      link_3:
+        - center: [0.13, 0.0, 0.0]
+          radius: 0.035
+      link_4:
+        - center: [0.12, 0.0, 0.0]
+          radius: 0.035
+      link_5:
+        - center: [0.0, -0.055, 0.0]
+          radius: 0.030
+      link_6:
+        - center: [0.0, 0.04, 0.0]
+          radius: 0.030
+      right_tcp:
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.012
+
+    collision_sphere_buffer: 0.0
+    extra_collision_spheres: {}
+
+    self_collision_ignore:
+      link_1: ["link_2", "link_3"]
+      link_2: ["link_1", "link_3", "link_4"]
+      link_3: ["link_1", "link_2", "link_4", "link_5"]
+      link_4: ["link_2", "link_3", "link_5", "link_6"]
+      link_5: ["link_3", "link_4", "link_6", "right_tcp"]
+      link_6: ["link_4", "link_5", "right_tcp"]
+      right_tcp: ["link_5", "link_6"]
+
+    self_collision_buffer:
+      link_1: 0.00
+      link_2: 0.00
+      link_3: 0.00
+      link_4: 0.00
+      link_5: 0.00
+      link_6: 0.00
+      right_tcp: 0.00
+
+    use_global_cumul: True
+    mesh_link_names: []
+
+    cspace:
+      joint_names:
+        - "joint_1"
+        - "joint_2"
+        - "joint_3"
+        - "joint_4"
+        - "joint_5"
+        - "joint_6"
+
+      retract_config: [0.0, 0.58, -1.67, -0.5, 1.51, 0.0]
+      null_space_weight: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+      cspace_distance_weight: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+
+      max_acceleration: 8.0
+      max_jerk: 200.0
+      position_limit_clip: 0.1

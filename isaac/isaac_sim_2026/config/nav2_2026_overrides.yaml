@@ -1,0 +1,108 @@
+amcl:
+  ros__parameters:
+    use_sim_time: true
+    global_frame_id: map
+    odom_frame_id: odom
+    base_frame_id: base_link
+    scan_topic: /laser_scan_fuse
+    robot_model_type: "nav2_amcl::DifferentialMotionModel"
+    tf_broadcast: true
+    transform_tolerance: 1.0
+
+slam_toolbox:
+  ros__parameters:
+    use_sim_time: true
+    odom_frame: odom
+    map_frame: map
+    base_frame: base_link
+    scan_topic: /laser_scan_fuse
+    transform_publish_period: 0.05
+    transform_timeout: 0.3
+    max_laser_range: 12.0
+
+bt_navigator:
+  ros__parameters:
+    use_sim_time: true
+    global_frame: map
+    robot_base_frame: base_link
+    odom_topic: /odom
+
+controller_server:
+  ros__parameters:
+    use_sim_time: true
+    odom_topic: /odom
+    controller_frequency: 5.0
+    general_goal_checker:
+      xy_goal_tolerance: 0.45
+      yaw_goal_tolerance: 0.60
+    FollowPath:
+      max_vel_x: 0.12
+      max_vel_theta: 0.45
+      max_speed_xy: 0.12
+      acc_lim_x: 0.6
+      acc_lim_theta: 0.9
+      decel_lim_x: -0.6
+      decel_lim_theta: -0.9
+
+planner_server:
+  ros__parameters:
+    use_sim_time: true
+
+behavior_server:
+  ros__parameters:
+    use_sim_time: true
+    global_frame: map
+    robot_base_frame: base_link
+    transform_tolerance: 0.2
+
+local_costmap:
+  local_costmap:
+    ros__parameters:
+      use_sim_time: true
+      global_frame: odom
+      robot_base_frame: base_link
+      observation_sources: scan
+      voxel_layer:
+        z_resolution: 0.16
+        z_voxels: 16
+        max_obstacle_height: 2.5
+        observation_sources: scan
+        scan:
+          topic: /laser_scan_fuse
+          sensor_frame: fuse_lidar_link
+          data_type: "LaserScan"
+          max_obstacle_height: 2.5
+      obstacle_layer:
+        max_obstacle_height: 2.5
+        observation_sources: scan
+        scan:
+          topic: /laser_scan_fuse
+          sensor_frame: fuse_lidar_link
+          data_type: "LaserScan"
+          max_obstacle_height: 2.5
+
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      use_sim_time: true
+      global_frame: map
+      robot_base_frame: base_link
+      observation_sources: scan
+      voxel_layer:
+        z_resolution: 0.16
+        z_voxels: 16
+        max_obstacle_height: 2.5
+        observation_sources: scan
+        scan:
+          topic: /laser_scan_fuse
+          sensor_frame: fuse_lidar_link
+          data_type: "LaserScan"
+          max_obstacle_height: 2.5
+      obstacle_layer:
+        max_obstacle_height: 2.5
+        observation_sources: scan
+        scan:
+          topic: /laser_scan_fuse
+          sensor_frame: fuse_lidar_link
+          data_type: "LaserScan"
+          max_obstacle_height: 2.5

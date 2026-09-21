@@ -1,0 +1,112 @@
+##
+## TuringStack X1 right gripper-base cuRobo configuration
+## Source URDF: /home/u-zhuang/ros2_ws/src/isaac/isaac_sim_2026/config/TuringStack_X1_2.urdf
+##
+## This is for grasp reachability analysis. It uses gripper01_base as the end-effector,
+## while the currently controlled DOF remain joint1_R..joint6_R. The torso joint "body"
+## is locked at 0.0 to match the current controller interface.
+##
+
+robot_cfg:
+  kinematics:
+    usd_path: null
+    usd_robot_root: "/robot"
+    isaac_usd_path: ""
+    usd_flip_joints: {}
+    usd_flip_joint_limits: []
+
+    urdf_path: "/home/u-zhuang/ros2_ws/src/isaac/isaac_sim_2026/config/TuringStack_X1_2.urdf"
+    asset_root_path: "/home/u-zhuang/ros2_ws/src/isaac/isaac_sim_2026/config"
+
+    base_link: "base_link"
+    ee_link: "gripper01_base"
+    link_names: null
+    lock_joints:
+      body: 0.0
+    extra_links: null
+
+    collision_link_names:
+      - "link1_R"
+      - "link2_R"
+      - "link3_R"
+      - "link4_R"
+      - "link5_R"
+      - "link6_R"
+      - "link7_R"
+      - "gripper01_base"
+
+    collision_spheres:
+      link1_R:
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.025
+        - center: [0.0, 0.0, 0.04]
+          radius: 0.025
+      link2_R:
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.022
+        - center: [0.0, -0.055, 0.0]
+          radius: 0.020
+      link3_R:
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.020
+        - center: [0.0, 0.0, 0.05]
+          radius: 0.020
+      link4_R:
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.018
+      link5_R:
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.018
+      link6_R:
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.016
+        - center: [0.0, 0.0, 0.03]
+          radius: 0.016
+      link7_R:
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.018
+      gripper01_base:
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.020
+
+    collision_sphere_buffer: 0.0
+    extra_collision_spheres: {}
+
+    self_collision_ignore:
+      link1_R: ["link2_R", "link3_R"]
+      link2_R: ["link1_R", "link3_R", "link4_R"]
+      link3_R: ["link1_R", "link2_R", "link4_R", "link5_R"]
+      link4_R: ["link2_R", "link3_R", "link5_R", "link6_R"]
+      link5_R: ["link3_R", "link4_R", "link6_R", "link7_R"]
+      link6_R: ["link4_R", "link5_R", "link7_R", "gripper01_base"]
+      link7_R: ["link5_R", "link6_R", "gripper01_base"]
+      gripper01_base: ["link6_R", "link7_R"]
+
+    self_collision_buffer:
+      link1_R: 0.00
+      link2_R: 0.00
+      link3_R: 0.00
+      link4_R: 0.00
+      link5_R: 0.00
+      link6_R: 0.00
+      link7_R: 0.00
+      gripper01_base: 0.00
+
+    use_global_cumul: True
+    mesh_link_names: []
+
+    cspace:
+      joint_names:
+        - "joint1_R"
+        - "joint2_R"
+        - "joint3_R"
+        - "joint4_R"
+        - "joint5_R"
+        - "joint6_R"
+
+      retract_config: [0.9, 0.0, 0.0, -0.5, 0.0, 0.0]
+      null_space_weight: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+      cspace_distance_weight: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+      max_acceleration: 10.0
+      max_jerk: 300.0
+      position_limit_clip: 0.1
